@@ -26,10 +26,12 @@
     <script>
         var socket = io.connect(window.location.origin);
 
-        nx.sendsTo(function(data){
-            // console.log(this.canvasID);
-            socket.emit('nx', { id: this.canvasID, data: data });
-        });
+        nx.onload = function() {
+            nx.sendsTo("node");
+            // nx.sendsTo(function(data){
+            //     socket.emit('nx', { id: this.canvasID, data: data });
+            // });
+        }
     </script>
 </body>
 </html>
